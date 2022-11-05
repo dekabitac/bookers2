@@ -1,0 +1,11 @@
+<%= render 'users/user', user: @user %>
+<%= render 'book', book: @book_ %>
+
+<%= form_with model: @book do |f| %>
+
+<%= f.text_field :title %>
+<%= f.text_area :body %>
+
+<%= f.submit 'Create book' %>
+
+<% end %>

@@ -1,0 +1,24 @@
+<h2>Userinfo</h2>
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>error prohibited this obj from being saved:
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @user do |f| %>
+
+<label for = "inputName">Name</label>
+<%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"Name" %>
+
+<labvel for = "inputImage">Image</labvel>
+<%= f.file_field :profile_image, placeholder:"ファイル選択", accept: "image/*" %>
+
+
+<level for = "inputintroduction">introduction</level>
+<%= f.text_field :introduction, autofoucus: true, id:"inputintroduction", placeholder:"Introduction" %>
+<%= f.submit "Update User" %>
+
+<% end %>
